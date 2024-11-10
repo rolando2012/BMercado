@@ -16,33 +16,38 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //final colors = Theme.of(context).colorScheme;
+    // Definir las vistas que se deben mostrar
     final screens = [
       const GraficosView(),
       const ConvertidorView(),
-      const SesionView()
+      // Aquí ya no navegas, simplemente muestra una pantalla en blanco o similar
+      const Placeholder(), 
     ];
-    final titulos = ['Gráficos','Convertidor','Inicio de Sesión'];
+    
+    final titulos = ['Gráficos', 'Convertidor', 'Inicio de Sesión'];
+
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text(titulos[selectedIndex])),
         backgroundColor: const Color.fromRGBO(0, 81, 128, 1),
       ),
-      
       body: IndexedStack(
         index: selectedIndex,
         children: screens,
       ),
-      
-      floatingActionButton: BotonFlotante(),   
-
+      floatingActionButton: const BotonFlotante(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         currentIndex: selectedIndex,
         onTap: (value) {
-          setState(() {
-            selectedIndex = value;
-          });
+          if (value == 2) {
+            // Aquí realizas la navegación
+            Navigator.pushNamed(context, '/login');
+          } else {
+            setState(() {
+              selectedIndex = value;
+            });
+          }
         },
         elevation: 0,
         items: const [
@@ -75,19 +80,21 @@ class _MainScreenState extends State<MainScreen> {
               FontAwesomeIcons.circleUser,
               color: Colors.white70,
             ),
-            activeIcon:
-                FaIcon(FontAwesomeIcons.circleUser, color: Colors.amber),
+            activeIcon: FaIcon(
+              FontAwesomeIcons.circleUser,
+              color: Colors.amber,
+            ),
             label: 'Inicio de Sesión',
             backgroundColor: Color.fromRGBO(0, 81, 128, 1),
           ),
         ],
-        selectedItemColor:
-            Colors.yellow, // Cambia el color del label cuando está seleccionado
+        selectedItemColor: Colors.yellow,
       ),
       backgroundColor: const Color.fromRGBO(24, 30, 66, 1),
     );
   }
 }
+
 
 class BotonFlotante extends StatelessWidget {
   const BotonFlotante({

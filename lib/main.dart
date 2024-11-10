@@ -1,3 +1,4 @@
+import 'package:bmercado/presentation/screens/login_screen.dart';
 import 'package:bmercado/presentation/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +19,12 @@ class Myapp extends StatelessWidget {
         brightness: Brightness.dark,
         colorSchemeSeed: Colors.blueGrey
       ),
-      home: const Scaffold( 
-      body: MainScreen(),
-    )
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainScreen(),
+        '/login': (context) => const LoginScreen(),
+      },
+      
     );
   }
 }
