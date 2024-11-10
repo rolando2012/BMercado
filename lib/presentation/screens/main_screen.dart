@@ -34,6 +34,8 @@ class _MainScreenState extends State<MainScreen> {
         children: screens,
       ),
       
+      floatingActionButton: BotonFlotante(),   
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         currentIndex: selectedIndex,
@@ -83,6 +85,26 @@ class _MainScreenState extends State<MainScreen> {
             Colors.yellow, // Cambia el color del label cuando está seleccionado
       ),
       backgroundColor: const Color.fromRGBO(24, 30, 66, 1),
+    );
+  }
+}
+
+class BotonFlotante extends StatelessWidget {
+  const BotonFlotante({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      shape: const StadiumBorder(),
+      onPressed: () { 
+        
+      },
+
+      backgroundColor: Colors.white,
+      child: const Icon(Icons.question_mark_outlined,
+                        color: Color.fromRGBO(24, 30, 66, 1),),
     );
   }
 }
