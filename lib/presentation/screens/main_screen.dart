@@ -1,5 +1,9 @@
+import 'package:bmercado/presentation/views/graficos_view.dart';
+import 'package:bmercado/presentation/views/sesion_view.dart';
+import 'package:bmercado/presentation/views/convertidor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,19 +18,11 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     //final colors = Theme.of(context).colorScheme;
-    final screens = [ 'graficos',  'contador','sesión'];
+    final screens = [ const GraficosView(), const ConvertidorView(), const SesionView()];
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(screens[selectedIndex],
-                style: const TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.w100)),
-            
-          ],
-      ),
-      
+      body: IndexedStack(
+        index: selectedIndex,
+        children: screens,
       ),
       
       bottomNavigationBar: BottomNavigationBar(
