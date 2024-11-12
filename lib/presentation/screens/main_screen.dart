@@ -1,5 +1,4 @@
 import 'package:bmercado/presentation/views/graficos_view.dart';
-import 'package:bmercado/presentation/views/sesion_view.dart';
 import 'package:bmercado/presentation/views/convertidor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

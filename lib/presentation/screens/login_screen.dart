@@ -14,11 +14,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return  Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("Login")),),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children:  [
-          Text('Inicio de Sesión', style: TextStyle(fontSize: 25)),
-        ],
+      body:  Center(
+        child : TextButton(
+          onPressed: (){
+            Navigator.pushNamed(context, '/register');
+          }
+        , child: const Text('Registro',style: TextStyle(fontSize: 25)))
       ),
     );
   }
